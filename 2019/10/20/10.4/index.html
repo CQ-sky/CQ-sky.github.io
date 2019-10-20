@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>近期学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="信息收集(shodan的使用) Shodan HackingShodan(撒旦搜索引擎），被称为“最可怕的搜索引擎”，可扫描一切联网的设备，除了常见的web服务器，还能扫描防火墙、路由器、交换机、摄像头、打印机等一切联网设备。IP直接搜索IP服务&#x2F;产品：搜索服务(过滤功能需要登录才能使用)例： 服务名 ….http:http country:”两位国家代码”  搜索指定国家的http主机(DE 德">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近期学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;10.4&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="信息收集(shodan的使用) Shodan HackingShodan(撒旦搜索引擎），被称为“最可怕的搜索引擎”，可扫描一切联网的设备，除了常见的web服务器，还能扫描防火墙、路由器、交换机、摄像头、打印机等一切联网设备。IP直接搜索IP服务&#x2F;产品：搜索服务(过滤功能需要登录才能使用)例： 服务名 ….http:http country:”两位国家代码”  搜索指定国家的http主机(DE 德">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-04T14:53:52.607Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-10.4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.4/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      近期学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>信息收集(shodan的使用)</p>
+<h2 id="Shodan-Hacking"><a href="#Shodan-Hacking" class="headerlink" title="Shodan Hacking"></a>Shodan Hacking</h2><p>Shodan(撒旦搜索引擎），被称为“最可怕的搜索引擎”，可扫描一切联网的设备，除了常见的web服务器，还能扫描防火墙、路由器、交换机、摄像头、打印机等一切联网设备。<br><by><br>IP<br>直接搜索IP<br><by><br>服务/产品：<br>搜索服务(过滤功能需要登录才能使用)<br>例： 服务名 ….<br>http:<br>http country:”两位国家代码”  搜索指定国家的http主机<br>(DE 德国 CN 中国 US 美国 JP 日本……)<br>http product:”Apache httpd” 搜索指定产品为Apache httpd的http主机<br><by><br>ssh:<br>ssh default 关键词  搜索服务为ssh，指定关键词<br>(也支持搜索关键字)<br><by><br>Country：<br>搜索指定国家<br>Country:”两位国家代码”<br><by><br>product:<br>搜索指定产品<br>product:”Apache httpd”  搜索指定产品为Apache httpd<br>(nginx mysql…..)<br><by><br>Version<br>搜索版本号<br>product:MySql Version:”5.1.73” 搜索服务为MySQL，版本号为5.1.73<br><by><br>hostname:<br>搜索指定站点<br>hostname:站点 搜索指定站点<br>hostname:.org  搜索主机名中有.org<br><by><br>os<br>指定操作系统及版本<br>Os:”linux 2.6.x” 系统为linux 2.6<br>Os:”windows 7 or 8” 系统为windows 7 或 8<br><by><br>Net<br>搜索指定网段<br>Net:网段  搜索指定网段<br><by><br>Port<br>搜索指定端口<br>Port：端口  搜索指定端口<br><by><br>上面的实例可以综合使用来得到你想要的结果</p>
+<p>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="www.shodan.io">shodan</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.4/" data-id="ck1z2w7ox0002kkvkdpk3f33c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/10.2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          近期学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/20/9.27/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">9.27学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

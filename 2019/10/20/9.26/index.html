@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>9.26学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XSS跨站脚本攻击 XSS跨站脚本攻击：跨站脚本攻击（Cross Site Scripting）缩写为CSS，因容易与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。跨站脚本攻击（XSS），是目前最普遍的Web应用安全漏洞。指恶意攻击者利用网站没有对用户提交的数据进行转义处理或过滤不足的缺点，进而添加一些代码，嵌入到web页面中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9.26学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;9.26&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XSS跨站脚本攻击 XSS跨站脚本攻击：跨站脚本攻击（Cross Site Scripting）缩写为CSS，因容易与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。跨站脚本攻击（XSS），是目前最普遍的Web应用安全漏洞。指恶意攻击者利用网站没有对用户提交的数据进行转义处理或过滤不足的缺点，进而添加一些代码，嵌入到web页面中，">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-26T13:36:01.382Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.26" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.26/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      9.26学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="XSS跨站脚本攻击："><a href="#XSS跨站脚本攻击：" class="headerlink" title="XSS跨站脚本攻击："></a>XSS跨站脚本攻击：</h2><p>跨站脚本攻击（Cross Site Scripting）缩写为CSS，因容易与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。<br><by><br>跨站脚本攻击（XSS），是目前最普遍的Web应用安全漏洞。指恶意攻击者利用网站没有对用户提交的数据进行转义处理或过滤不足的缺点，进而添加一些代码，嵌入到web页面中，使别的用户访问都会执行相应的代码。从而盗取用户资料、利用用户身份进行某种动作或对访问者进行病毒侵害的一种攻击方式。<br><by><br>当动态页面中插入的内容含有这些特殊字符（如&lt;）时，用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞，XSS一般使用javascript，但实际上也可以包括Java、 VBScript、ActiveX、 Flash 或者甚至是普通的HTML。<br><by><br>危害：<br>盗取各类用户站号、控制企业数据，包括读取、篡改、添加、删除数据的能力。盗取资料、非法转载帐、强制发送电子邮件、网站挂马、控制受害者机器发起攻击<br><by></p>
+<h3 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h3><p>反射型XSS：<br>只在提交的一刻代码会执行一遍，不会保存。但可以存储在url中，当用户点击时就会生效（如搜索框）。<br><by><br>存储型XSS：<br>可以把代码保存在网页上，当用户访问时就会生效（如留言框），相对反射型危害较大。<br><by><br>Javascript格式：<br>“&lt;\script&gt; 内容 &lt;/script&gt;” //在内容中加入js代码就可以进行攻击</p>
+<h4 id="防范方法"><a href="#防范方法" class="headerlink" title="防范方法"></a>防范方法</h4><p>入参字符过滤<br>在源头控制，把输入的一些不合法的东西都过滤掉，从而保证安全性。如移除用户提交的的DOM属性如onerror，移除用户上传的Style节点，&lt;\iframe&gt;,&lt;\script&gt;，&lt;\a&gt;节点等出参进行编码.<br>如果源头没控制好，就得后期补救了：像一些常见的符号，如&lt;&gt;在输出的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。例如：对&lt;&gt;做编码如：”&lt;”用:”&lt;”,”&gt;”用:”&gt;”来代替。<br>入参长度限制<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br>[博客园（网络攻击-XSS攻击详解）]（<a href="https://www.cnblogs.com/mao2080/p/9460397.html）" target="_blank" rel="noopener">https://www.cnblogs.com/mao2080/p/9460397.html）</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.26/" data-id="ck1z2w7ql0008kkvkhwtrec82" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/9.25/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          9.25学习笔记
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

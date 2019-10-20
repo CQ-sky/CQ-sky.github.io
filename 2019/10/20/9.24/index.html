@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>9.24学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自动化注入sqlmap sqlmap(Pythen开发，kali自带工具,win需要安装)    Sqlmap是一个安全稳定性测试工具，可以进行自动化检测、利用SQL漏洞来注入、获取数据库服务器权限，支持mysql、oracle、postgreSQL、Microsoft SQL Server、Microsoft Access、IBM DB2、SQLite、Firebird、sybaes、SAP M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9.24学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;9.24&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="自动化注入sqlmap sqlmap(Pythen开发，kali自带工具,win需要安装)    Sqlmap是一个安全稳定性测试工具，可以进行自动化检测、利用SQL漏洞来注入、获取数据库服务器权限，支持mysql、oracle、postgreSQL、Microsoft SQL Server、Microsoft Access、IBM DB2、SQLite、Firebird、sybaes、SAP M">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-24T12:22:06.323Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.24" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.24/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.476Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      9.24学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自动化注入sqlmap</p>
+<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><p>(Pythen开发，kali自带工具,win需要安装)<br><by><br>    Sqlmap是一个安全稳定性测试工具，可以进行自动化检测、利用SQL漏洞来注入、获取数据库服务器权限，支持mysql、oracle、postgreSQL、Microsoft SQL Server、Microsoft Access、IBM DB2、SQLite、Firebird、sybaes、SAP MaxDB等.<br><by><br>    sqlmap支持五种不同的注入模式：<br>    1.基于布尔的盲注，即可以根据返回页面判断条件真假的注入。<br>    2.基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。<br>    3.基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。<br>    4.联合查询注入，可以使用union的情况下的注入。<br>    5.堆查询注入，可以同时执行多条语句的执行时的注入。<br><by><br>    Sqlmap  -h  查看帮助<br>            -u URL 目标url<br>            -g 处理Google dork的结果作为目标URL<br>            –random-agent  使用随机客户端<br>            –dbms=DBMS（MYsql、oracle） 指定数据库类型<br>            –level=LEVEL 指定安全等级（1-5，默认为1）<br>            –risk=RISK 执行测试的风险（0-3，默认为1）<br>            –current-user 返回数据库管理系统当前用户<br>            –current-db 返回网站当前数据库<br>            –os-cmd=OSCMD 执行操作系统命令<br>            –os-shell 交互式的操作系统的shell<br>            –batch 从不询问用户输入，使用所有默认配置</p>
+<p>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="https://blog.csdn.net/qq_33530840/article/details/82144515" target="_blank" rel="noopener">CSDN(sqlmap的使用)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.24/" data-id="ck1z2w7q80005kkvkckdahydn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/9.23/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          9.23学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/20/9.25/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">9.25学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

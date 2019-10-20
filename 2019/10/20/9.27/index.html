@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>9.27学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XSS跨站脚本攻击 构造XSS脚本常用html标签&amp;lt;\iframe&amp;gt;  创建一个包含另外一个文档的内联框架（行内框架）&amp;lt;\textarea&amp;gt; 定义多行文本框输入&amp;lt;\img&amp;gt; 向网页嵌入一幅图像&amp;lt;\script&amp;gt; 定义客户端脚本，如Java script，script既可以包含脚本语句，也可以通过src属性指向外部脚本文件，必须的type属性规定脚本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9.27学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;9.27&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XSS跨站脚本攻击 构造XSS脚本常用html标签&amp;lt;\iframe&amp;gt;  创建一个包含另外一个文档的内联框架（行内框架）&amp;lt;\textarea&amp;gt; 定义多行文本框输入&amp;lt;\img&amp;gt; 向网页嵌入一幅图像&amp;lt;\script&amp;gt; 定义客户端脚本，如Java script，script既可以包含脚本语句，也可以通过src属性指向外部脚本文件，必须的type属性规定脚本的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-28T12:39:26.536Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.27" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/9.27/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      9.27学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XSS跨站脚本攻击</p>
+<h2 id="构造XSS脚本"><a href="#构造XSS脚本" class="headerlink" title="构造XSS脚本"></a>构造XSS脚本</h2><h3 id="常用html标签"><a href="#常用html标签" class="headerlink" title="常用html标签"></a>常用html标签</h3><p>&lt;\iframe&gt;  创建一个包含另外一个文档的内联框架（行内框架）<br>&lt;\textarea&gt; 定义多行文本框输入<br>&lt;\img&gt; 向网页嵌入一幅图像<br>&lt;\script&gt; 定义客户端脚本，如Java script，script既可以包含脚本语句，也可以通过src属性指向外部脚本文件，必须的type属性规定脚本的mime类型常见应用：图像操作、表单验证、动态内容更新<br><by></p>
+<h4 id="常用Java-script方法"><a href="#常用Java-script方法" class="headerlink" title="常用Java script方法"></a>常用Java script方法</h4><p>Alert()  //显示一条带一条指定消息与一个确认按钮的警告框<br>Window.location  //获得当前页面的地址（URL），并把浏览器重定向到新的页面<br>Location.href  //返回当前显示的文档的完整URL<br>Onload  //一张页面或一幅图像完成加载<br>Onsubmit  //确认按钮被点击<br>Onerror  //在加载文档或图像时发生错误<br><by></p>
+<h5 id="Xss脚本"><a href="#Xss脚本" class="headerlink" title="Xss脚本"></a>Xss脚本</h5><p>&lt;\script&gt;alert(document.cookie)&lt;/script&gt;  //弹窗取得cookie<br>&lt;\iframe src=http://网站链接 width=xx height=xx&gt;&lt;/iframe&gt; 嵌套一个页面（高、宽设为0，可使嵌入的网页不可及）<br>&lt;\script&gt; window.location=”链接” &lt;/script&gt;  //重定向到某个链接<br>&lt;\script&gt; alert(“xss”);window.location=”链接” &lt;/script&gt;  //联合使用（通过显示一些类提示信息来诱导用户）<br>&lt;\script src=”链接”&gt;&lt;/script&gt;  //访问链接中的恶意代码<br><by><br>绕开过滤的脚本：<br>&lt;\ScrIpt &gt;alert(“xss”)&lt;/SCRipt&gt;  //大小写<br>&lt;\a<br>Href=”base64编码”&gt; xxxxx&lt;/a&gt;  (a标签为超链接，xxx为点击点)//字符编码 采用URL、base64等<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/9.27/" data-id="ck1z2w7qg0007kkvkfto6a63n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/10.4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          近期学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/20/9.28/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">9.27学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

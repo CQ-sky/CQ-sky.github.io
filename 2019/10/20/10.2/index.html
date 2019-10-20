@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>近期学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="python xss 信息收集 python选择、循环语句选择：If 条件 ：    语句Else:    语句If 条件：    语句Elif 条件：    语句Else:    语句循环：While 条件：    语句循环使用else:While 条件：    语句Else:    语句for 迭代变量 in 字符串|列表|元组|字典|集合：代码例：sum=0for i in range(10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近期学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;10.2&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python xss 信息收集 python选择、循环语句选择：If 条件 ：    语句Else:    语句If 条件：    语句Elif 条件：    语句Else:    语句循环：While 条件：    语句循环使用else:While 条件：    语句Else:    语句for 迭代变量 in 字符串|列表|元组|字典|集合：代码例：sum=0for i in range(10">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-04T14:55:18.842Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-10.2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.2/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.492Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      近期学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python xss 信息收集</p>
+<h2 id="python选择、循环语句"><a href="#python选择、循环语句" class="headerlink" title="python选择、循环语句"></a>python选择、循环语句</h2><p>选择：<br>If 条件 ：<br>    语句<br>Else:<br>    语句<br><by><br>If 条件：<br>    语句<br>Elif 条件：<br>    语句<br>Else:<br>    语句<br><by><br>循环：<br>While 条件：<br>    语句<br><by><br>循环使用else:<br>While 条件：<br>    语句<br>Else:<br>    语句<br><by><br>for 迭代变量 in 字符串|列表|元组|字典|集合：<br>代码<br><by><br>例：<br>sum=0<br>for i in range(101):  //计算1的累加<br>sum += i<br><by><br>range(start,end,step)        //由于生成一系列连续的整数，多用于for<br>start：用于指定计数的起始值，如果省略不写，则默认从 0 开始。<br>end：用于指定计数的结束值（不包括此值），此参数不能省略。<br>step：用于指定步长，即两个数之间的间隔，如果省略，则默认步长为 1。</p>
+<h2 id="Dom型XSS"><a href="#Dom型XSS" class="headerlink" title="Dom型XSS"></a>Dom型XSS</h2><p>Dom:<br>网页中的用来表示文档中对象的标准模型，通过JavaScript可以对网页中的所有DOM对象进行操作,可以理解为一个一个访问HTML的标准编程接口。过程全都在前端完成。不经过后端<br><by><br>Dom型xss：<br>前端的输入被dom获取到了，然后通过dom又在前端输出了。和发射型和存储型相比没有经过后台</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>Web信息收集，主要是掌握目标web服务的方方面面，实现渗透前的准备工作。<br>主要内容包括操作系统、服务器类型、数据库类型、web容器、web语言、域名信息、网站目录。涉及搜索引擎、网站扫描、域名遍历、指纹识别等。<br><by><br>Google Hacking:<br>Site:<br>用来搜索指定的域名的网页内容，可以用来搜索子域名、和此域名相关的内容。<br>Site:域名（zhihu.com ）  搜索和域名网站相关的网页<br>“内容” site:域名  搜索域名网站中和内容相关的网页<br><by><br>filetype：<br>搜索指定文件类型<br>“内容” filetype:pdf(各种格式)  搜索和内容相关的pdf文件<br>Site:域名 filetype:pdf  联合使用，搜索域名网站中的pdf文件<br><by><br>Inurl:<br>搜索url网址存在特定关键字的网页，可以用来搜寻有注入点的网站<br>Inurl: .php?id=(某个内容)  搜索网址中有.php?id=的网页<br><by><br>Intitle:<br>搜索标题存在特定关键字的网页<br>Intitle:后台登陆(任意内容)  搜索网页标题是”后台登录”的相关网页<br>Intitle:后台登陆 flietype:php  搜索网页标题是”后台登录”的php页面<br>Intitle:index of “关键字”  搜索此关键字(admin login等)的索引目录信息<br><by><br>Intext:<br>搜索正文存在特定关键字的网页<br>Intext:powered by 任意内容  搜索与内容相关的页面，可以搜索一些软件的关键字<br>如：<br>Discuz    一款开源的论坛软件<br>Wordpress   使用php开发的博客平台<br>CMS  内容管理系统，可以理解为建站系统<br><by><br>符号：<br>-关键字   强制结果不要出现此关键字<br>*关键字  模糊搜索，强制结果包含此关键字<br>“关键字”  强制结果出现此关键字<br>~单词   同时搜索近义词<br>2017..2019   显示指定年份时间段内的结果<br><by><br>通过上面的一些搜索技巧可以搜索到网站隐藏的较深的后台登录界面，或者得知网站使用哪一个软件来搭建的及软件版本号。<br><by><br>小知识：<br>Define:单词  查询单词的定义<br>谷歌可以进行数学计算，直接输入算式就行<br>单位换算功能：54磅=？公斤<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av46483006" target="_blank" rel="noopener">bilibili</a><br><a href="www.google.com">Google</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.2/" data-id="ck1z2w7oq0001kkvkf9j1gujh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/10.9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/20/10.4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">近期学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

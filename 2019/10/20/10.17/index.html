@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="misc（进阶）、流量取证、密码学 文件分离Dd手动分离：Dd if=源文件 of=目标文件名 bs=读写块大小 skip=开始分离的字节数 文件合并Linux下：cat 合并的文件&amp;gt;输出的文件完整性检测：md5sum 文件名Windows下：copy &#x2F;B 合并的文件 输出的文件完整性检测：certutil-hashfile 文件名 md5 图片工具：Fireworks工具：处理Firew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;cq-sky.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;10.17&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="misc（进阶）、流量取证、密码学 文件分离Dd手动分离：Dd if=源文件 of=目标文件名 bs=读写块大小 skip=开始分离的字节数 文件合并Linux下：cat 合并的文件&amp;gt;输出的文件完整性检测：md5sum 文件名Windows下：copy &#x2F;B 合并的文件 输出的文件完整性检测：certutil-hashfile 文件名 md5 图片工具：Fireworks工具：处理Firew">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-17T13:02:31.268Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cq-sky.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-10.17" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/20/10.17/" class="article-date">
+  <time datetime="2019-10-20T14:20:31.508Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>misc（进阶）、流量取证、密码学</p>
+<h2 id="文件分离"><a href="#文件分离" class="headerlink" title="文件分离"></a>文件分离</h2><p>Dd手动分离：<br>Dd if=源文件 of=目标文件名 bs=读写块大小 skip=开始分离的字节数<br><by></p>
+<h2 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h2><p>Linux下：<br>cat 合并的文件&gt;输出的文件<br>完整性检测：<br>md5sum 文件名<br><by><br>Windows下：<br>copy /B 合并的文件 输出的文件<br>完整性检测：<br>certutil-hashfile 文件名 md5<br><by></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>工具：<br>Fireworks工具：<br>处理Firework标志的图像<br>图层分解、帧分析<br><by><br>stegsolve工具（Java环境）：<br>功能：<br>通道分离、LSB分离、图像对比<br><by></p>
+<h3 id="图片加密"><a href="#图片加密" class="headerlink" title="图片加密"></a>图片加密</h3><p>Bftools 工具（windows）:<br>可以对加密过的图片进行加密，也可以加密图片<br><by><br>进入工具目录，运行bftools.exe decode braincopter 要加密的图片文件名 –output 输出文件名<br>bftools.exe run 上一步输出的文件名<br><by><br>silentEye（windows、图形化）工具：<br>一款可以将文字或文件隐藏到图片中的解密工具<br><by></p>
+<h2 id="流量取证"><a href="#流量取证" class="headerlink" title="流量取证"></a>流量取证</h2><h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>数据包的有效数据不会超过1500字节<br><by><br>TCP（Transmission Control Protocol，传输控制协议）提供的是面向连接，可靠的字节流服务。即客户和服务器交换数据前，必须现在双方之间建立一个TCP连接，之后才能传输数据。并且提供超时重发。<br><by><br>UDP（User Data Protocol，用户数据报协议）是一个简单的面向数据报的运输层协议。它不提供可靠性，只是把应用程序传给IP层的数据报发送出去，但是不能保证它们能到达目的地。由于UDP在传输数据报前不用再客户和服务器之间建立一个连接，且没有超时重发等机制，所以传输速度很快<br><by><br>SMTP简单邮件传输协议，传输端口为25<br><by><br>工具：<br>Wireshark工具：<br>常用的过滤命令：<br>过滤IP  ip.src eq(/==) x.x.x.x or(/and) ip.dst eq x.x.x.x<br>过滤端口  tcp.port eq 端口<br>Tcp.dstport==80  //只显示tcp协议的目标端口为80<br>Tcp.srcport==80  //只显示tcp协议的源端口为80<br>tcp/udp/arp/icmp/http/ftp/dns/ip.. //过滤协议<br>contains “ip” //包含某个IP<br><by><br>根据数据包的特征进行筛选：<br>查看数据包是，有的数据包有某些特征，可以筛选出这些特征。(统计-协议分集-作为过滤器应用-选中)</p>
+<h3 id="USB流量分析"><a href="#USB流量分析" class="headerlink" title="USB流量分析"></a>USB流量分析</h3><p>考察的流量涉及键盘击键、鼠标移动与点击、存储设备的明文传输，usb无线网卡网络传输内容等<br>键盘数据包的数据长度为8个字节，击键信息集中在第三个字节</p>
+<h2 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h2><p>概述：为了保证数据传输的可靠性<br>核心：密码学;（用于数据动态传输和静态存储）<br><by><br>发展阶段:<br>第一阶段 古代-19世纪末 古典密码<br>第二阶段 20世纪初-1949 近代密码<br>第三阶段 香农1949发表论文开始 现代密码<br>第四阶段 1976 公钥密码</p>
+<h3 id="对称加密与非对称加密"><a href="#对称加密与非对称加密" class="headerlink" title="对称加密与非对称加密"></a>对称加密与非对称加密</h3><p>对称加密：加、解密使用同一个密钥，速度快，但密钥不能泄露<br>非对称加密：加、解密使用不同的密钥，速度慢（比对称慢1000倍）<br><by><br>公钥、私钥：<br>公钥分给其他人，私钥只有一个，自己拥有（公钥加密只能私钥解密，反之异同）<br>公钥加密：只有私钥能解密，保证能发给特定对象<br>私钥加密：只要有公钥就能解密，只要公钥能解密，就一定是私钥拥有者发出的<br><by><br>注：通常传输数据使用对称加密保证可靠，通常网站使用证书保证安全性<br>如何保证对称密钥的传输？(使用对方的公钥加密传输对称密钥)</p>
+<h3 id="摘要算法："><a href="#摘要算法：" class="headerlink" title="摘要算法："></a>摘要算法：</h3><p>数据摘要算法也被称为哈希(hash)算法、散列算法，常见摘要算法有MD5、SHA<br><by><br>两大特点：雪崩效应(就算只改变1bit，值也完全不同)、不可逆（无法逆推）</p>
+<h2 id="常见编码："><a href="#常见编码：" class="headerlink" title="常见编码："></a>常见编码：</h2><p>ASCII码<br>0~31属于不可打印字符<br><by><br>Base64:<br>用64个可显示字符表示所有的ASC字符<br><by><br>URL编码：<br>url就是一个字符ASCII码的十六进制，需要在前面加上%<br><by><br>等…….<br><by><br>常见算法：<br>移位加密：栅栏密码、曲路密码、列位移密码<br>替换加密：凯撒密码、莫斯密码、ROY5/13/18/47、维吉尼亚密码、培根密码、键盘密码<br>其他：MD4、SHA<br><by><br>资料链接：<br><a href="https://www.bilibili.com/video/av60627186" target="_blank" rel="noopener">bilibili</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cq-sky.github.io/2019/10/20/10.17/" data-id="ck1z2w7o30000kkvkfbdy5bfp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/20/10.9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/20/10.17/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.9/">学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.2/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/10.4/">近期学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/20/9.27/">9.27学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 cq-sky<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
